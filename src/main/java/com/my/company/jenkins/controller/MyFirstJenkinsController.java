@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.my.company.jenkins.pojo.Address;
+
 @RestController
 @RequestMapping("/api")
 public class MyFirstJenkinsController {
@@ -17,6 +19,11 @@ public class MyFirstJenkinsController {
 	@RequestMapping(value="/id/{id}", method=RequestMethod.GET)
 	public String readDetails(@PathVariable String id){
 		return "Hello "+id+" belongs to Ravi Chappa";
+	}
+	
+	@RequestMapping(value="/address/{id}", method=RequestMethod.GET)
+	public Address readAddress(@PathVariable String id){
+		return new Address("Mallory Cirlce", "Orlando", "FL", "USA");
 	}
 
 }
