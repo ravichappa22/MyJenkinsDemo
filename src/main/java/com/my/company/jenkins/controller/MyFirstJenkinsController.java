@@ -13,5 +13,10 @@ public class MyFirstJenkinsController {
 	public String readData(@PathVariable String name){
 		return "Hello "+name+" Welcome Back";
 	}
+	
+	@RequestMapping(value="/id/{id}", method=RequestMethod.GET)
+	public String readDetails(@PathVariable String id){
+		return "Hello "+id+" belongs to Ravi Chappa";
+	}
 
 }
