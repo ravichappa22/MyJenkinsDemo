@@ -1,6 +1,7 @@
 package com.my.company.jenkins.controller;
 
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,6 +25,11 @@ public class MyFirstJenkinsController {
 	@RequestMapping(value="/address/{id}", method=RequestMethod.GET)
 	public Address readAddress(@PathVariable String id){
 		return new Address("Mallory Cirlce", "Orlando", "FL", "USA");
+	}
+	
+	@RequestMapping(value="/address/update", method=RequestMethod.PUT)
+	public Boolean updateAddress(@RequestBody Address address){
+		return true;
 	}
 
 }
