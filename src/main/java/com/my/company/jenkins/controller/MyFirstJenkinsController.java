@@ -1,5 +1,10 @@
 package com.my.company.jenkins.controller;
 
+
+import java.time.LocalDate;
+import java.time.Month;
+import java.time.format.DateTimeFormatter;
+
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,5 +36,13 @@ public class MyFirstJenkinsController {
 	public Boolean updateAddress(@RequestBody Address address){
 		return true;
 	}
-
+	
+	@RequestMapping(value="/employee/dob/{id}", method=RequestMethod.GET)
+	public String retrieveDob(@PathVariable String id){
+		DateTimeFormatter format = DateTimeFormatter.ofPattern("d-MMM-uuuu");
+		LocalDate dob = LocalDate.of(1981,Month.JULY,1);
+		return dob.format(format);
+		
+	}
+	
 }
